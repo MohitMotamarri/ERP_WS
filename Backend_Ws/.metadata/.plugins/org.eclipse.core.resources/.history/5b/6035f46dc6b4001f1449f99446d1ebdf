@@ -1,0 +1,13 @@
+package com.klef.jfsd.erp.repository;
+
+import com.klef.jfsd.erp.model.Faculty;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+
+public interface FacultyRepository extends JpaRepository<Faculty, Long> {
+
+	Faculty findByIdAndPassword(Long id, String password);
+    // Add custom query methods if needed
+	List<Faculty> findById(Long id);
+}

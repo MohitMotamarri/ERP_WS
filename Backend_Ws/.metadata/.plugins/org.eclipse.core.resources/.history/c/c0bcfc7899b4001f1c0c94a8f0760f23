@@ -1,0 +1,16 @@
+package com.klef.jfsd.erp.service;
+
+import java.util.List;
+
+import com.klef.jfsd.erp.model.Course;
+import com.klef.jfsd.erp.model.Faculty;
+import com.klef.jfsd.erp.model.Student;
+
+public interface FacultyService 
+{
+	List<Student> viewAllStudentsForFaculty();
+	Student viewStudentById(Long id);
+	List<Course> viewCoursesForFaculty(Long facultyId);
+
+	
+}

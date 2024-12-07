@@ -1,0 +1,5 @@
+package com.klef.jfsd.erp.model;
+
+public class FacultyLeave {
+
+}

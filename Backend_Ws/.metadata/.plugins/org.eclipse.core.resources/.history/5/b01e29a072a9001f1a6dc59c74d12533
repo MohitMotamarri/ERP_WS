@@ -1,0 +1,77 @@
+package com.klef.jfsd.erp.controller;
+
+import com.klef.jfsd.erp.model.Faculty;
+import com.klef.jfsd.erp.model.Student;
+import com.klef.jfsd.erp.service.AdminService;
+import com.klef.jfsd.erp.service.CourseService;
+import com.klef.jfsd.erp.service.FacultyService;
+import com.klef.jfsd.erp.service.StudentService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+@RequestMapping("/admin")
+public class AdminController {
+
+    @Autowired
+    private StudentService studentService;
+    
+    @Autowired
+    private FacultyService facultyService;
+    
+    @Autowired
+    private AdminService adminService;
+    
+    @Autowired
+    private CourseService courseService;
+    
+
+    @PostMapping("/addStudent")
+    public ResponseEntity<String> addStudent(@RequestBody Student student) {
+        adminService.addStudent(student);
+        return ResponseEntity.ok("Student added successfully");
+    }
+
+    @PostMapping("/addFaculty")
+    public ResponseEntity<String> addFaculty(@RequestBody Faculty faculty) {
+        adminService.addFaculty(faculty);
+        return ResponseEntity.ok("Faculty added successfully");
+    }
+    
+    // New endpoint to view all students
+    @GetMapping("/viewAllStudents")
+    public ResponseEntity<List<Student>> viewAllStudents() {
+        List<Student> students = adminService.viewAllStudents();
+        return ResponseEntity.ok(students);
+    }
+
+    // New endpoint to view all faculty
+    @GetMapping("/viewAllFaculty")
+    public ResponseEntity<List<Faculty>> viewAllFaculty() {
+        List<Faculty> faculties = adminService.viewAllFaculty();
+        return ResponseEntity.ok(faculties);
+    }
+    
+    @GetMapping("/viewStudent/{id}")
+    public ResponseEntity<Student> viewStudentById(@PathVariable Long id) {
+        Student student = adminService.viewStudentById(id);
+        return ResponseEntity.ok(student);
+    }
+
+    @GetMapping("/viewFaculty/{id}")
+    public ResponseEntity<Faculty> viewFacultyById(@PathVariable Long id) {
+        Faculty faculty = adminService.viewFacultyById(id);
+        return ResponseEntity.ok(faculty);
+    }
+
+    
+    
+}
