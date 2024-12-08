@@ -16,6 +16,7 @@ import UpdateStudent from './components/Admin/pages/UpdateStudent';
 import StudentHomePage from './components/Student/StudentHomePage';
 import FacultyHomePage from './components/Faculty/FacultyHomePage';
 import StuViewCourses from './components/Student/pages/ViewCourses';
+import StudentProfile from './components/Student/pages/StudentProfile';
 
 import ViewStudentsF from './components/Faculty/pages/ViewStudentF';
 import FacultyProfile from './components/Faculty/pages/FacultyProfile';
@@ -23,6 +24,10 @@ import FullStudentF from './components/Faculty/pages/FullStudentF';
 import AdminLeaveManagement from './components/Admin/pages/AdminLeaveManagement';
 import ViewFacultyLeave from './components/Faculty/pages/ViewFacultyLeave';
 import FacultyLeaveForm from './components/Faculty/pages/FacultyLeaveForm';
+
+import CourseRegistration from './components/Student/pages/CourseRegistration';
+
+import ContactUs from './ContactUs';
 
 
 
@@ -59,6 +64,10 @@ const App = () => {
 
 
         <Route path="/student/view-courses" element={<StuViewCourses />} />
+        <Route path="/student/register-courses" element={< CourseRegistration/>} />
+
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/student/profile" element={<StudentProfile/>} />
 
 
         

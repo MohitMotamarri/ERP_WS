@@ -11,4 +11,7 @@ public interface StudentService {
 	List<Course> viewCoursesForStudent(Long studentId);
 
 	Student checkStudentLogin(LoginRequest request);
+
+	boolean registerStudentForCourse(Long studentId, Long courseId);
+	 
 }

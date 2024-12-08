@@ -1,5 +1,7 @@
 package com.klef.jfsd.erp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +19,9 @@ public class CourseServiceImpl implements CourseService
     public void addCourse(Course course) {
         courseRepository.save(course);
     }
+
+	@Override
+	public List<Course> getAllCourses() {
+		return courseRepository.findAll();
+	}
 }

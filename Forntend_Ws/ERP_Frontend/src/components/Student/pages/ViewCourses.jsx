@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import StudentLayout from "../StudentLayout";
 
 const ViewCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -6,7 +7,7 @@ const ViewCourses = () => {
 
   const fetchCourses = async () => {
     try {
-      const studentId = localStorage.getItem("studentId"); // Assuming studentId is stored in localStorage
+      const studentId = localStorage.getItem("id"); // Assuming studentId is stored in localStorage
       if (!studentId) {
         setError("Student ID not found. Please log in again.");
         return;
@@ -36,6 +37,9 @@ const ViewCourses = () => {
   }, []);
 
   return (
+    <StudentLayout>
+
+    
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Registered Courses</h2>
@@ -55,6 +59,7 @@ const ViewCourses = () => {
         )}
       </div>
     </div>
+    </StudentLayout>
   );
 };
 
